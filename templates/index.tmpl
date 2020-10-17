@@ -27,10 +27,10 @@
             </div>
             <div class="card-body">{{.Content}}</div>
             <div class=" align-self-right  ml-auto card-footer">
-                <img src="/statics/img/lajitong-2.png" alt="" width="20px" height="20px" onclick="showDel({{ .ID}})" >
+                <img src="/statics/img/lajitong-2.png" alt="" width="20px" height="20px" id="del-btn-{{.ID}}" onclick="showDel({{ .ID}})" >
                 <form action="/api/del" method="post" hidden="hidden" id="inputform-{{.ID}}">
                     保护密码: <input type="password" name="password">
-                    <button class="btn btn-primary" name="id" value="{{.ID}}">Delete</button>
+                    <button class="btn btn-danger" name="id" value="{{.ID}}">Delete</button>
                 </form>
             </div>
         </div>
@@ -38,6 +38,7 @@
     <script>
         function showDel(index) {
             $('#inputform-'+index).removeAttr("hidden");
+            $('#del-btn-'+index).attr("hidden","hidden");
         }
     </script>
 </main>
